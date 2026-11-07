@@ -1,0 +1,7 @@
+{
+  "name": "token-frugal",
+  "owner": { "name": "shelmecha" },
+  "plugins": [
+    { "name": "token-frugal", "source": "./", "description": "Sourced token-saving guidance for Claude Code. Audits CLAUDE.md files and proposes cleanups." }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "base": "https://code.claude.com/docs/en/",
+  "pages": ["costs", "memory", "context-window", "prompt-caching", "mcp", "skills", "sub-agents", "features-overview", "best-practices", "how-claude-code-works", "commands"]
+}

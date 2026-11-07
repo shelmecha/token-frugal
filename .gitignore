@@ -1,0 +1,4 @@
+data/
+node_modules/
+.env*
+skills/token-frugal/references/.staged/

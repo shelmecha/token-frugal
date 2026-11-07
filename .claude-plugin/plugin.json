@@ -1,0 +1,8 @@
+{
+  "name": "token-frugal",
+  "version": "0.0.1",
+  "author": { "name": "shelmecha" },
+  "repository": "https://github.com/shelmecha/token-frugal",
+  "license": "MIT",
+  "description": "Sourced token-saving guidance for Claude Code. Audits CLAUDE.md files and proposes cleanups."
+}
