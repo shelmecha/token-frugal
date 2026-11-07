@@ -13,14 +13,15 @@
     <circle cx="980" cy="300" r="5"/><circle cx="1110" cy="280" r="7"/><circle cx="1150" cy="190" r="4"/>
   </g>
   <text x="80" y="150" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="76" font-weight="800" fill="#f8fafc">token<tspan fill="url(#acc)">-frugal</tspan></text>
-  <text x="82" y="205" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="28" fill="#cbd5e1">Spend less on every Claude Code message. Prove it with real numbers.</text>
+  <text x="82" y="200" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="28" fill="#cbd5e1">Spend less on every Claude Code message.</text>
+  <text x="82" y="234" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#94a3b8">Prove it with real numbers.</text>
   <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="600">
-    <rect x="80" y="250" width="190" height="44" rx="22" fill="#34d399" fill-opacity="0.15" stroke="#34d399"/>
-    <text x="175" y="279" text-anchor="middle" fill="#6ee7b7">Find the waste</text>
-    <rect x="290" y="250" width="210" height="44" rx="22" fill="#22d3ee" fill-opacity="0.15" stroke="#22d3ee"/>
-    <text x="395" y="279" text-anchor="middle" fill="#67e8f9">You approve fixes</text>
-    <rect x="520" y="250" width="200" height="44" rx="22" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa"/>
-    <text x="620" y="279" text-anchor="middle" fill="#c4b5fd">Measure savings</text>
+    <rect x="80" y="266" width="190" height="44" rx="22" fill="#34d399" fill-opacity="0.15" stroke="#34d399"/>
+    <text x="175" y="295" text-anchor="middle" fill="#6ee7b7">Find the waste</text>
+    <rect x="290" y="266" width="210" height="44" rx="22" fill="#22d3ee" fill-opacity="0.15" stroke="#22d3ee"/>
+    <text x="395" y="295" text-anchor="middle" fill="#67e8f9">You approve fixes</text>
+    <rect x="520" y="266" width="200" height="44" rx="22" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa"/>
+    <text x="620" y="295" text-anchor="middle" fill="#c4b5fd">Measure savings</text>
   </g>
   <g transform="translate(860,95)" font-family="Segoe UI, Helvetica, Arial, sans-serif">
     <rect width="260" height="170" rx="18" fill="#0b1020" stroke="#334155"/>
