@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="360" rx="24" fill="url(#bg)"/>
+  <g opacity="0.12" fill="#22d3ee">
+    <circle cx="1040" cy="70" r="6"/><circle cx="1080" cy="110" r="4"/><circle cx="1120" cy="60" r="3"/>
+    <circle cx="980" cy="300" r="5"/><circle cx="1110" cy="280" r="7"/><circle cx="1150" cy="190" r="4"/>
+  </g>
+  <text x="80" y="150" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="76" font-weight="800" fill="#f8fafc">token<tspan fill="url(#acc)">-frugal</tspan></text>
+  <text x="82" y="205" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="28" fill="#cbd5e1">Spend less on every Claude Code message. Prove it with real numbers.</text>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="600">
+    <rect x="80" y="250" width="190" height="44" rx="22" fill="#34d399" fill-opacity="0.15" stroke="#34d399"/>
+    <text x="175" y="279" text-anchor="middle" fill="#6ee7b7">Find the waste</text>
+    <rect x="290" y="250" width="210" height="44" rx="22" fill="#22d3ee" fill-opacity="0.15" stroke="#22d3ee"/>
+    <text x="395" y="279" text-anchor="middle" fill="#67e8f9">You approve fixes</text>
+    <rect x="520" y="250" width="200" height="44" rx="22" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa"/>
+    <text x="620" y="279" text-anchor="middle" fill="#c4b5fd">Measure savings</text>
+  </g>
+  <g transform="translate(860,95)" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <rect width="260" height="170" rx="18" fill="#0b1020" stroke="#334155"/>
+    <text x="130" y="52" text-anchor="middle" font-size="18" fill="#94a3b8">every message</text>
+    <text x="130" y="112" text-anchor="middle" font-size="64" font-weight="800" fill="url(#acc)">−15%</text>
+    <text x="130" y="146" text-anchor="middle" font-size="16" fill="#64748b">measured, not guessed</text>
+  </g>
+</svg>

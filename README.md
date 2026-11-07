@@ -1,42 +1,96 @@
-# token-frugal
+<p align="center">
+  <img src="assets/banner.svg" alt="token-frugal: spend less on every Claude Code message" width="100%">
+</p>
 
-A Claude Code plugin that finds where your tokens go and helps you cut them, without guessing and without touching anything you didn't approve.
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-34d399?style=flat-square" alt="MIT"></a>
+  <img src="https://img.shields.io/badge/Claude%20Code-plugin-a78bfa?style=flat-square" alt="Claude Code plugin">
+  <img src="https://img.shields.io/badge/tests-16%20passing-22d3ee?style=flat-square" alt="16 tests passing">
+  <img src="https://img.shields.io/badge/edits-only%20with%20your%20yes-f8fafc?style=flat-square" alt="edits only with your yes">
+</p>
 
-Real result on the author's setup: turning off unused claude.ai connectors cut the first request of every session from 52,860 to 44,997 input tokens, **7,863 tokens (14.9%) per request**, measured as the median of 3 runs before and after.
+<h3 align="center">Your Claude Code sessions are carrying weight you never asked for.<br>token-frugal finds it, cuts it with your approval, and shows you the receipt.</h3>
+
+---
+
+## Why it matters
+
+Every message you send to Claude Code also sends a hidden bundle: instructions, memory, tool lists, connectors. You pay for that bundle **on every single turn**. When it's bloated, you get:
+
+- 💸 **Higher bills**, or faster hits on your plan limits
+- 🧠 **Shorter sessions** before Claude has to compact and forget
+- 🤔 **Confused answers**, from old or conflicting rules buried in your files
+
+## The result
+
+<p align="center">
+  <img src="assets/before-after.svg" alt="Before and after: 15% less sent on every message" width="85%">
+</p>
+
+One change, approved in a single "yes", made **every message about 15% lighter** for good. Measured with real sessions, not estimated.
+
+## How it works
+
+```
+  1. FIND            2. FIX                 3. PROVE
+  ─────────          ─────────              ─────────
+  Audits your        Shows the exact        Runs real before/after
+  instruction        diff. Nothing          sessions and tells you
+  files, memory      changes until you      if the saving is real
+  and tools.         say yes. Backup        or just noise.
+                     kept, always.
+```
+
+## What you can ask it
+
+> **"Why is my session so expensive?"**
+> Ranks what's taking up space, by real measured usage.
+
+> **"Check my CLAUDE.md files."**
+> Finds broken imports, duplicate lines, dead links and rules that contradict each other across folders.
+
+> **"What if I turned off the Figma connector?"**
+> Tests it in a throwaway session first. Your settings are untouched.
+
+> **"Is that tip from Reddit true?"**
+> 22 popular tips, each with a trust score. Three common myths are busted with sources.
+
+> **"How much have I saved so far?"**
+> A running savings history across all your projects.
 
 ## Install
 
 In Claude Code:
 
-    /plugin marketplace add shelmecha/token-frugal
-    /plugin install token-frugal@token-frugal
+```
+/plugin marketplace add shelmecha/token-frugal
+/plugin install token-frugal@token-frugal
+```
 
-Then start a new session and run `/token-frugal:token-frugal`, or just ask "why is my session expensive?"
+Start a new session and type `/token-frugal:token-frugal`, or just ask a question above.
 
-Needs Node.js 18+ and the `claude` CLI on your PATH (for measuring).
+<sub>Needs Node.js 18+. Measuring uses the `claude` CLI on your PATH.</sub>
 
-## What it does
+## Built to be trusted
 
-- **Answers token questions from sources.** Context window, CLAUDE.md size, MCP cost, compaction, subagents, skills vs CLAUDE.md. Every answer links to the official Claude Code docs. Popular community tips are included with a trust score, and the ones the docs contradict are marked.
-- **Audits your instruction files.** Walks the full CLAUDE.md, rules and memory tree for a project, including imports, and reports dead imports, duplicate lines, dead links and possible conflicting rules across levels.
-- **Proposes fixes as diffs.** Nothing is edited until you see the diff and say yes. Every applied change keeps a backup.
-- **Measures, not estimates.** `measure.js` runs short `claude -p` probes and reports real input tokens before and after a change, with run-to-run variation, so you know if a saving is real. `whatif` tests denying MCP servers without changing your settings.
-- **Keeps a savings history** across projects.
-- **Optional start-of-session check.** Once a day per project it audits the instruction files and prints one line only if something is off. It never edits anything. Turn it off with `TOKEN_FRUGAL_NUDGE=off`.
+| Promise | How it keeps it |
+|---|---|
+| Never edits behind your back | Every change is a diff you approve. A backup is kept. |
+| Never guesses | Every number is labelled **measured**, **estimate** or **unknown**. |
+| Never oversells | Small savings are called small. Noise is called noise. |
+| Sources, not vibes | Answers link to the official Claude Code docs. |
+| Stays quiet | A once-a-day check speaks up only when something is wrong. Turn off with `TOKEN_FRUGAL_NUDGE=off`. |
 
-## Honesty rules
+<details>
+<summary><b>For developers</b></summary>
 
-Every number is labelled measured, estimate or unknown. Small savings are reported as small. Conflicts are flagged for a human, never auto-edited.
+- Data (proposals, backups, history) lives in `~/.cache/token-frugal`. Override with `TOKEN_FRUGAL_DATA`.
+- To audit several projects at once, copy `config.example.json` to `~/.cache/token-frugal/config.json`.
+- Run locally: `claude --plugin-dir .`
+- Tests: `node --test tests/*.test.js`
 
-## Data
+</details>
 
-Proposals, backups, audit results and history live in `~/.cache/token-frugal` (override with `TOKEN_FRUGAL_DATA`). To audit several projects at once, copy `config.example.json` to `~/.cache/token-frugal/config.json` and list them; otherwise the audit checks the current folder.
+---
 
-## Develop
-
-    claude --plugin-dir .
-    node --test tests/*.test.js
-
-## License
-
-MIT
+<p align="center"><sub>MIT licensed · Made for people who'd rather spend tokens on answers</sub></p>
