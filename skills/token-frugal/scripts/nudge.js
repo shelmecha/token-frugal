@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // SessionStart hook. Silent unless something is off, and then one line.
 // 1. Once a day per project: audits the session's project and nudges on findings.
-// 2. Once a week: refreshes the staged docs in the background (writes only to references/.staged/).
+// 2. Once a day, only when cwd is the ~/.claude root: scans it with slither-files (report only).
+// 3. Once a week: refreshes the staged docs in the background (writes only to references/.staged/).
 // It never edits a project file and never fails the session.
 const fs = require('fs');
 const os = require('os');
@@ -41,12 +42,32 @@ function audit(cwd) {
   try { return JSON.parse(fs.readFileSync(path.join(dir, 'findings.json'), 'utf8')); } catch { return null; }
 }
 
+function filesCheck(cwd) {
+  const root = process.env.TOKEN_FRUGAL_CLAUDE_ROOT || path.join(os.homedir(), '.claude');
+  if (path.resolve(cwd).toLowerCase() !== path.resolve(root).toLowerCase()) return;
+  const stamp = path.join(DATA, 'files-stamp');
+  if (age(stamp) < DAY) return;
+  fs.writeFileSync(stamp, new Date().toISOString());
+  try { fs.unlinkSync(path.join(DATA, 'files-findings.json')); } catch { /* none yet */ }
+  spawnSync(process.execPath, [path.join(here, 'slither-files.js'), root, DATA], { timeout: 10000, stdio: 'ignore', windowsHide: true });
+  let findings = [];
+  try { findings = JSON.parse(fs.readFileSync(path.join(DATA, 'files-findings.json'), 'utf8')).findings; } catch { return; }
+  // heavy-env is flag-only and stays until the user acts, so it shows in the review, not the daily line.
+  findings = findings.filter((f) => f.type !== 'heavy-env');
+  if (!findings.length) return;
+  const counts = {};
+  for (const f of findings) counts[f.type] = (counts[f.type] || 0) + 1;
+  const list = Object.entries(counts).map(([t, n]) => `${n} ${t}`).join(', ');
+  console.log(`token-frugal: ~/.claude has ${list}. Run /token-frugal:token-frugal to review; nothing was changed.`);
+}
+
 function main() {
   if (process.env.TOKEN_FRUGAL_NUDGE === 'off') return;
   const input = readInput();
   const cwd = input.cwd || process.cwd();
   fs.mkdirSync(DATA, { recursive: true });
   refreshDocs();
+  try { filesCheck(cwd); } catch { /* never block the audit nudge */ }
   const findings = audit(cwd);
   if (!findings || !findings.length) return;
   const counts = {};

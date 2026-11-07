@@ -58,6 +58,9 @@ One change, approved in a single "yes", made **every message about 15% lighter**
 > **"How much have I saved so far?"**
 > A running savings history across all your projects.
 
+> **"What files can I clean in ~/.claude?"**
+> Finds empty folders, old scratch files, stray files and oversized environments. Removes only what you approve, to the Recycle Bin (Windows for now).
+
 ## Install
 
 In Claude Code:

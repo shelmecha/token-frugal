@@ -1,0 +1,57 @@
+{
+  "protected": [
+    "projects",
+    "sessions",
+    "session-env",
+    "shell-snapshots",
+    "file-history",
+    "paste-cache",
+    "tasks",
+    "plugins",
+    "ide",
+    "cache",
+    "statsig",
+    "todos",
+    "state",
+    "debug",
+    "chrome",
+    "backups",
+    ".git",
+    ".playwright-mcp"
+  ],
+  "allowRootFiles": [
+    ".gitignore",
+    "history.jsonl",
+    ".credentials.json",
+    "stats-cache.json",
+    "settings.local.json",
+    "README.md",
+    "desktop.ini",
+    "mcp-needs-auth-cache.json",
+    ".last-cleanup",
+    ".last-update-result.json",
+    "gh-pr-status-cache.json",
+    "skills-lock.json"
+  ],
+  "allowRootPatterns": [
+    "policy-limits*",
+    "remote-settings*",
+    "orca-agent-view.json*"
+  ],
+  "heavyNames": [
+    ".venv",
+    "venv",
+    "*-venv",
+    "node_modules",
+    "ms-playwright"
+  ],
+  "heavyMinMB": 100,
+  "heavyDepth": 5,
+  "tempFolders": [
+    "scratch",
+    "tmp",
+    "downloads"
+  ],
+  "staleDays": 30,
+  "recentMinutes": 60
+}
